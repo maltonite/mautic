@@ -488,6 +488,7 @@ class SalesforceIntegration extends CrmAbstractIntegration
 
                     ++$counter;
                     $this->em->detach($entity);
+                    $entity = null;
 
                     if ($counter >= 100) {
                         // Persist integration entities

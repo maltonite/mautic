@@ -2641,7 +2641,7 @@ abstract class AbstractIntegration
         }
 
         $integrationEntityRepo->saveEntities($integrationEntities);
-        //$integrationEntities = null;
+        $integrationEntities = null;
         $this->em->clear(IntegrationEntity::class);
     }
 

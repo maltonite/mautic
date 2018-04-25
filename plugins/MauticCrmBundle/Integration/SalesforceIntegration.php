@@ -506,8 +506,11 @@ class SalesforceIntegration extends CrmAbstractIntegration
             unset($data['records']);
             $this->logger->debug('SALESFORCE: amendLeadDataBeforeMauticPopulate response '.var_export($data, true));
 
+            $data = null;
             unset($data);
+
             $this->persistIntegrationEntities = [];
+            $dataObject                       = null;
             unset($dataObject);
         }
 

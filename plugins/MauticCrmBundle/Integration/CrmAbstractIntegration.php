@@ -466,6 +466,7 @@ abstract class CrmAbstractIntegration extends AbstractIntegration
             $leadModel->saveEntity($lead, false);
 
             $this->em->detach($leadModel);
+            $this->em->clear(Lead::class);
             //stopping memory leak
             $leadModel = null;
             unset($leadModel);

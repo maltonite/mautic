@@ -464,6 +464,9 @@ abstract class CrmAbstractIntegration extends AbstractIntegration
                 $this->getDisplayName()
             ));
             $leadModel->saveEntity($lead, false);
+
+            $this->em->detach($leadModel);
+            //stopping memory leak
             $leadModel = null;
             unset($leadModel);
         }

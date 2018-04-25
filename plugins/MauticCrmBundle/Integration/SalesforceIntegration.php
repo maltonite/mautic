@@ -453,7 +453,7 @@ class SalesforceIntegration extends CrmAbstractIntegration
                             $entity                = $this->getMauticLead($dataObject, true, null, null, $object, $params);
                             $mauticObjectReference = 'lead';
                             $detachClass           = Lead::class;
-                            $this->em->clear($detachClass);
+                            $this->em->clear('Mautic\LeadBundle\Entity\Lead');
 
                             break;
                         case 'Account':
@@ -487,6 +487,7 @@ class SalesforceIntegration extends CrmAbstractIntegration
                     }
 
                     ++$counter;
+                    $this->em->detach($entity);
 
                     if ($counter >= 100) {
                         // Persist integration entities

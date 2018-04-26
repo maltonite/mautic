@@ -917,6 +917,7 @@ class SalesforceIntegration extends CrmAbstractIntegration
 
                     $query['nextUrl']  = $nextUrl;
                     $paginator         = null;
+                    $result            = null;
                 }
 
                 if ($progress) {

@@ -490,7 +490,6 @@ class SalesforceIntegration extends CrmAbstractIntegration
 
                     ++$counter;
                     $this->em->detach($entity);
-                    $this->em->clear($entity);
                     $entity = null;
 
                     // if ($counter >= 100) {
@@ -898,7 +897,6 @@ class SalesforceIntegration extends CrmAbstractIntegration
                 $paginator = new ResultsPaginator($this->logger, $this->keys['instance_url']);
 
                 while (true) {
-                    $paginator = new ResultsPaginator($this->logger, $this->keys['instance_url']);
                     $result    = $this->getApiHelper()->getLeads($query, $object);
                     $paginator->setResults($result);
 
@@ -920,7 +918,7 @@ class SalesforceIntegration extends CrmAbstractIntegration
                     }
 
                     $query['nextUrl']  = $nextUrl;
-                    $paginator         = null;
+                    //memory leak
                     $result            = null;
                 }
 

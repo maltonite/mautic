@@ -124,6 +124,8 @@ class IntegrationSubscriber extends CommonSubscriber
                 $this->logger->debug($body);
             }
         }
+
+        //memory leak
         $response = null;
         $headers  = null;
         $name     = null;

@@ -894,7 +894,8 @@ class SalesforceIntegration extends CrmAbstractIntegration
                 $paginator = new ResultsPaginator($this->logger, $this->keys['instance_url']);
 
                 while (true) {
-                    $result = $this->getApiHelper()->getLeads($query, $object);
+                    $paginator = new ResultsPaginator($this->logger, $this->keys['instance_url']);
+                    $result    = $this->getApiHelper()->getLeads($query, $object);
                     $paginator->setResults($result);
 
                     if (isset($params['output']) && !isset($params['progress'])) {
@@ -915,6 +916,7 @@ class SalesforceIntegration extends CrmAbstractIntegration
                     }
 
                     $query['nextUrl']  = $nextUrl;
+                    $paginator         = null;
                 }
 
                 if ($progress) {

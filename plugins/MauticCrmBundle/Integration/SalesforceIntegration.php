@@ -494,6 +494,7 @@ class SalesforceIntegration extends CrmAbstractIntegration
                         // Persist integration entities
                         $this->buildIntegrationEntities($integrationMapping, $object, $mauticObjectReference, $params);
                         $counter = 0;
+                        $this->logger->info(memory_get_usage());
                         $this->em->clear($detachClass);
                         $integrationMapping = [];
                     }

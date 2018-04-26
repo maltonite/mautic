@@ -393,7 +393,8 @@ abstract class CrmAbstractIntegration extends AbstractIntegration
 
         // Default to new lead
         $lead = new Lead();
-        $lead->setNewlyCreated(true);
+
+        //$lead->setNewlyCreated(true);
 
         if (count($uniqueLeadFieldData)) {
             $existingLeads = $this->em->getRepository('MauticLeadBundle:Lead')
@@ -463,7 +464,7 @@ abstract class CrmAbstractIntegration extends AbstractIntegration
                 null,
                 $this->getDisplayName()
             ));
-            $leadModel->saveEntity($lead, true);
+            $leadModel->saveEntity($lead, false);
 
             $this->em->detach($leadModel);
             $this->em->clear(Lead::class);

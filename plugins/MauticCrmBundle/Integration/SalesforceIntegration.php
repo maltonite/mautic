@@ -492,14 +492,14 @@ class SalesforceIntegration extends CrmAbstractIntegration
                     $this->em->detach($entity);
                     $entity = null;
 
-                    // if ($counter >= 100) {
-                    // Persist integration entities
-                    $this->buildIntegrationEntities($integrationMapping, $object, $mauticObjectReference, $params);
-                    $counter = 0;
-                    $this->em->clear();
-                    $this->em->clear($detachClass);
-                    $integrationMapping = [];
-                    // }
+                    if ($counter >= 100) {
+                        // Persist integration entities
+                        // $this->buildIntegrationEntities($integrationMapping, $object, $mauticObjectReference, $params);
+                        $counter = 0;
+                        $this->em->clear();
+                        $this->em->clear($detachClass);
+                        $integrationMapping = [];
+                    }
                 }
             }
 

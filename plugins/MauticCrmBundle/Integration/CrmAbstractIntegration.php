@@ -463,7 +463,7 @@ abstract class CrmAbstractIntegration extends AbstractIntegration
                 null,
                 $this->getDisplayName()
             ));
-            $leadModel->saveEntity($lead, false);
+            $leadModel->saveEntity($lead, true);
 
             $this->em->detach($leadModel);
             $this->em->clear(Lead::class);

@@ -110,9 +110,10 @@ class FormModel extends AbstractCommonModel
         //set some defaults
         $this->setTimestamps($entity, $isNew, $unlock);
 
-        //$event = $this->dispatchEvent('pre_save', $entity, $isNew);
+        $event = $this->dispatchEvent('pre_save', $entity, $isNew);
         $this->getRepository()->saveEntity($entity);
-        // $this->dispatchEvent('post_save', $entity, $isNew, $event);
+        $this->dispatchEvent('post_save', $entity, $isNew, $event);
+        $this->em->detach($entity);
     }
 
     /**

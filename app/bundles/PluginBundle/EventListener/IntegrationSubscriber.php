@@ -124,5 +124,14 @@ class IntegrationSubscriber extends CommonSubscriber
                 $this->logger->debug($body);
             }
         }
+        $response = null;
+        $headers  = null;
+        $name     = null;
+        $isJson   = null;
+        $json     = null;
+        $xml      = null;
+        $isXml    = null;
+        $doc      = null;
+        $output   = null;
     }
 }

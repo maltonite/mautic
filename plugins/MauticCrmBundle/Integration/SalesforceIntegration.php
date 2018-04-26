@@ -490,6 +490,7 @@ class SalesforceIntegration extends CrmAbstractIntegration
 
                     ++$counter;
                     $this->em->detach($entity);
+                    $this->em->clear($entity);
                     $entity = null;
 
                     // if ($counter >= 100) {

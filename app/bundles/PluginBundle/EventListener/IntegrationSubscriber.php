@@ -133,5 +133,6 @@ class IntegrationSubscriber extends CommonSubscriber
         $isXml    = null;
         $doc      = null;
         $output   = null;
+        $body     = null;
     }
 }

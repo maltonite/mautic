@@ -920,6 +920,7 @@ class SalesforceIntegration extends CrmAbstractIntegration
                     $query['nextUrl']  = $nextUrl;
                     //memory leak
                     $result            = null;
+                    $this->em->clear();
                     gc_collect_cycles();
                 }
 

@@ -494,7 +494,7 @@ class SalesforceIntegration extends CrmAbstractIntegration
 
                     if ($counter >= 100) {
                         // Persist integration entities
-                        // $this->buildIntegrationEntities($integrationMapping, $object, $mauticObjectReference, $params);
+                        $this->buildIntegrationEntities($integrationMapping, $object, $mauticObjectReference, $params);
                         $counter = 0;
                         $this->em->clear();
                         $this->em->clear($detachClass);
@@ -920,6 +920,7 @@ class SalesforceIntegration extends CrmAbstractIntegration
                     $query['nextUrl']  = $nextUrl;
                     //memory leak
                     $result            = null;
+                    gc_collect_cycles();
                 }
 
                 if ($progress) {
